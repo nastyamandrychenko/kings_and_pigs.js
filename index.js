@@ -3,6 +3,14 @@ const c = canvas.getContext('2d');
 canvas.width = 1024;
 canvas.height = 576;
 
+class Sprite{
+    constructor({position}){
+        this.position = position
+        this.image = new Image()
+        this.image.src = ''
+    }
+}
+
 const player = new Player();
 
 const keys = {
@@ -37,6 +45,7 @@ function animate() {
 animate();
 
 window.addEventListener('keydown', (event) => {
+    console.log(event.key, "keydown")
   switch (event.key) {
     case 'w':
       if (player.velocity.y === 0) {
@@ -54,6 +63,7 @@ window.addEventListener('keydown', (event) => {
 });
 
 window.addEventListener('keyup', (event) => {
+    console.log(event.key, "keyup")
     switch (event.key) {
 
       case 'a':
