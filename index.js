@@ -45,33 +45,36 @@ function animate() {
 }
 animate();
 
-window.addEventListener('keydown', (event) => {
+function handleKeyDown(event) {
     console.log(event.key, "keydown")
-  switch (event.key) {
-    case 'w':
+  switch (event.keyCode) {
+    case 87:
       if (player.velocity.y === 0) {
         player.velocity.y = -20;
       }
       break;
-
-    case 'a':
+    case 65:
         keys.a.pressed = true;
       break;
-    case 'd':
+    case 68:
         keys.d.pressed = true;
       break;
   }
-});
+}
 
-window.addEventListener('keyup', (event) => {
+function handleKeyUp(event) {
     console.log(event.key, "keyup")
-    switch (event.key) {
-
-      case 'a':
+    switch (event.keyCode) {
+      case 65:
         keys.a.pressed = false;
         break;
-      case 'd':
+      case 68:
         keys.d.pressed = false;
         break;
     }
-  });
+  }
+
+
+window.addEventListener('keydown', handleKeyDown);
+
+window.addEventListener('keyup', handleKeyUp);
