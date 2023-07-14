@@ -12,6 +12,11 @@ position:{
 imageSrc: './img/backgroundLevel1.png'
 })
 
+const parsedCollisions = collisionsLevel1.parse2d();
+const collisionBlocks = parsedCollisions.createObjectsFrom2D()
+
+
+
 const player = new Player();
 
 const keys = {
@@ -33,6 +38,9 @@ function animate() {
   window.requestAnimationFrame(animate);
 
   backgroundLevel1.draw()
+  collisionBlocks.forEach((collisionBlock) =>{
+    collisionBlock.draw()
+  })
   player.velocity.x = 0;
   if (keys.d.pressed){
     player.velocity.x = 5
